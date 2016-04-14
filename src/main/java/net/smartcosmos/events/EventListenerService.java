@@ -15,13 +15,13 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 @Slf4j
 public class EventListenerService {
 
-	public static void main(String[] args) {
-		new SpringApplicationBuilder(EventListenerService.class).web(true).run(args);
-	}
+    public static void main(String[] args) {
+        new SpringApplicationBuilder(EventListenerService.class).web(true).run(args);
+    }
 
-	@SmartCosmosEventListenerReceiver
-	public void onEvent(SmartCosmosEvent event) {
+    @SmartCosmosEventListenerReceiver
+    public void onEvent(SmartCosmosEvent event) {
 
-		log.info("Received {} event: {}", event.getEventType(), event);
-	}
+        log.info("Received {} event: {}", event.getEventType(), event);
+    }
 }
