@@ -1,0 +1,9 @@
+= SMART COSMOS Event Listener Service
+SMARTRAC Technology Fletcher Inc <api@smartrac-group.com>
+ifdef::env-github[:USER: SMARTRACTECHNOLOGY]
+ifdef::env-github[:REPO: smartcosmos-event-listener]
+ifdef::env-github[:BRANCH: master]
+
+image::https://travis-ci.org/{USER}/{REPO}.svg?branch={BRANCH}[Build Status, link=https://travis-ci.org/{USER}/{REPO}]
+
+The Event Listener service is a service that listens to the incoming events from the event service and provides an outbound channel for events that do not implement a direct listener interface.
