@@ -1,5 +1,7 @@
 package net.smartcosmos.events;
 
+import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -8,15 +10,11 @@ import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Payload;
 
-import lombok.extern.slf4j.Slf4j;
-import net.smartcosmos.spring.EnableSmartCosmos;
-
 /**
  * @author voor
  */
-@EnableSmartCosmos
+@net.smartcosmos.annotation.EnableSmartCosmosEvents
 @SpringBootApplication
-@EnableSmartCosmosEvents
 @Slf4j
 public class EventListenerService {
 
@@ -34,8 +32,5 @@ public class EventListenerService {
 
         log.info("Event data is type: {}",event.getData().getClass());
 
-        // If you don't ack, you'll keep on getting it.
-        // If you remove this parameter, then you will immediately ack on receipt.
-//        acknowledgment.acknowledge();
     }
 }
