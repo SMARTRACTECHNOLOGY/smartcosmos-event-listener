@@ -9,6 +9,8 @@ spring:
     config:
       enabled:  false
 
+smartcosmos.event-listener.topic: test.topic
+
 eureka:
   client:
     enabled:  false
