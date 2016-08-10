@@ -22,7 +22,7 @@ public class EventListenerService {
         new SpringApplicationBuilder(EventListenerService.class).web(true).run(args);
     }
 
-    @KafkaListener(topics = {"stupid-event"})
+    @KafkaListener(topics = { "${smartcosmos.event-listener.topic}" })
     public void onEvent(@Payload SmartCosmosEvent event,
                         @Header(KafkaHeaders.RECEIVED_PARTITION_ID) int partition,
                         @Header(KafkaHeaders.RECEIVED_TOPIC) String topic,
