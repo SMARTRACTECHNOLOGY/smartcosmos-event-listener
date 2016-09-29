@@ -7,3 +7,50 @@ ifdef::env-github[:BRANCH: master]
 image::https://travis-ci.org/{USER}/{REPO}.svg?branch={BRANCH}[Build Status, link=https://travis-ci.org/{USER}/{REPO}]
 
 The Event Listener service is a service that listens to the incoming events from the event service and provides an outbound channel for events that do not implement a direct listener interface.
+
+The configuration value `smartcosmos.event-listener.topic` which defaults to `thing.read` defines what event this service is listening for.
+
+== Events in Standard Services
+While any service can create an event, or listen to any event, the system comes with several pre-existing events from many of the core metaphor services (Things, Relationships, Interactions, and Metadata).  When listening to events it's best to remember that *every* interaction is an event, but not every event is an interaction.  Meaning that every interaction has a *source* and a *target* whereas events might merely be auditing or logging relevant information.
+
+=== Things
+----
+THING_CREATED("thing.created"),
+THING_READ("thing.read"),
+THING_DELETED("thing.deleted"),
+THING_NOT_FOUND("thing.notFound"),
+THING_UPDATED("thing.updated"),
+THING_DEACTIVATED("thing.deactivated"),
+THING_CREATE_ALREADY_EXISTS("thing.createAlreadyExists"),
+THING_CREATED_TRANSACTIONAL("thing.createdTransactional.transactionId."),
+THING_TRANSACTIONAL_CREATE_FAILURE("thing.TransactionalCreateFailure.transactionId."),
+----
+
+=== Relationships
+----
+RELATIONSHIP_CREATED("relationship.created"),
+RELATIONSHIP_READ("relationship.read"),
+RELATIONSHIP_DELETED("relationship.deleted"),
+RELATIONSHIP_NOT_FOUND("relationship.notFound"),
+RELATIONSHIP_OWNER_NOT_FOUND("relationship.ownerNotFound"),
+RELATIONSHIP_EMPTY_REQUEST("relationship.emptyRequest"),
+RELATIONSHIP_CONSTRAINT_VIOLATION("relationship.constraintViolation"),
+RELATIONSHIP_CREATE_ALREADY_EXISTS("relationship.createAlreadyExists"),
+----
+
+=== Interactions
+
+=== Metadata
+----
+METADATA_CREATED("metadata.created"),
+METADATA_UPDATED("metadata.updated"),
+METADATA_UPSERTED("metadata.upserted"),
+METADATA_READ("metadata.read"),
+METADATA_DELETED("metadata.deleted"),
+METADATA_NOT_FOUND("metadata.notFound"),
+METADATA_OWNER_NOT_FOUND("metadata.ownerNotFound"),
+METADATA_EMPTY_REQUEST("metadata.emptyRequest"),
+METADATA_CONSTRAINT_VIOLATION("metadata.constraintViolation"),
+METADATA_CREATE_KEY_ALREADY_EXISTS("metadata.createKeyAlreadyExists"),
+METADATA_FORBIDDEN("metadata.forbidden"),
+----
