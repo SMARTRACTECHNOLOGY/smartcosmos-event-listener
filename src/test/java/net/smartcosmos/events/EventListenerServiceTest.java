@@ -1,7 +1,7 @@
 package net.smartcosmos.events;
 
 import org.junit.*;
-import org.junit.runner.*;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
@@ -26,7 +26,7 @@ public class EventListenerServiceTest {
 
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
-        System.setProperty("kafka.broker.address", embeddedKafka.getBrokersAsString());
+        System.setProperty("smartcosmos.service.kafka.address", embeddedKafka.getBrokersAsString());
     }
 
 
